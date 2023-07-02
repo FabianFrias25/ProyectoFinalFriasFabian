@@ -1,6 +1,9 @@
 
 .contenido{
     background-color: #DAF7A6;
+    position: absolute !important;
+    height: 200% !important;
+    width: 100% !important;
 }
 
 

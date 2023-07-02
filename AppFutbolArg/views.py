@@ -5,7 +5,7 @@ from .models import Equipos, Posiciones, Fixture
 from .forms import RegistrationForm
 
 
-def inicio(request):
+def Inicio(request):
     return render(request, 'AppFutbolArg/Inicio.html')
 
 

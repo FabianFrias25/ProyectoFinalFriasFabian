@@ -2,26 +2,28 @@
 {% load static %}
 <title>{% block title %}Posiciones | Liga Argentina 2023{% endblock %}</title>
 {% block contenidoQueCambia %}
-<div class="container mt-5 margenPosiciones">
-<table id="posiciones" class="tablesorter1">
-    <thead>
-        <tr style="background: grey; color: darkblack">
-            <th>#</th>
-            <th>Equipo</th>
-            <th class="pts">Puntos</th>
-            <th class="pj">Partidos Jugados</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for posicion in posiciones %}
-        <tr style="color: white">
-            <td>{{ forloop.counter }}</td>
-            <td>{{ posicion.equipo.nombre }}</td>
-            <td>{{ posicion.puntos }}</td>
-            <td>{{ posicion.PartidosJugados }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="contenido">
+    <div class="container mt-5 margenPosiciones">
+    <table id="posiciones" class="tablesorter1">
+        <thead>
+            <tr style="background: grey; color: darkblack">
+                <th>#</th>
+                <th>Equipo</th>
+                <th class="pts">Puntos</th>
+                <th class="pj">Partidos Jugados</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for posicion in posiciones %}
+            <tr style="color: white">
+                <td>{{ forloop.counter }}</td>
+                <td>{{ posicion.equipo.nombre }}</td>
+                <td>{{ posicion.puntos }}</td>
+                <td>{{ posicion.PartidosJugados }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
 </div>
 {% endblock %}

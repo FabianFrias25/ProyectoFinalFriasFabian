@@ -30,7 +30,7 @@
                 </div>
             </div>
         </nav>
-        <div class="contenido">
+        <div>
         {% block contenidoQueCambia %}
             <header class="masthead bg-primary text-white text-center">
                 <div class="container d-flex align-items-center flex-column">
@@ -46,8 +46,8 @@
                     <p class="pre-wrap masthead-subheading font-weight-light mb-0"> ¡Bienvenidos a la liga de Los Campeones del Mundo!</p>
                 </div>
                 <div>
-                    <a class="btn btn-primary" href="{% url 'login' %}">Iniciar Sesion</a>
-                    <a class="btn btn-primary" href="{% url 'registro' %}">Registrarse</a>
+                    <a class="btn btn-primary btn-black" href="{% url 'login' %}">Iniciar Sesion</a>
+                    <a class="btn btn-primary btn-black" href="{% url 'registro' %}">Registrarse</a>
                 </div>
             </header>
             {% endblock %}

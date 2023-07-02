@@ -3,7 +3,7 @@ from AppFutbolArg.views import *
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
-    path('inicio/', inicio, name="Inicio"),
+    path('inicio/', Inicio, name="Inicio"),
     path('equipos/', ver_equipos, name="Equipos"),
     path('posiciones/', ver_posiciones, name="Posiciones"),
     path('fixture/', ver_fixture, name="Fixture"),

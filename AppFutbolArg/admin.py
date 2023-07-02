@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import Equipos, Fixture, Posiciones, Prode
 
-# Register your models here.
+
+admin.site.register(Equipos)
+admin.site.register(Fixture)
+admin.site.register(Posiciones)
+admin.site.register(Prode)

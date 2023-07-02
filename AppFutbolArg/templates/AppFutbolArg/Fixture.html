@@ -1,0 +1,22 @@
+{% extends "AppFutbolArg/Inicio.html" %}
+{% load static %}
+<title>{% block title %}Posiciones | Liga Argentina 2023{% endblock %}</title>
+{% block contenidoQueCambia %}
+<div class="container mt-5 margenPosiciones">
+<h2 style="color: darkblack; font-weight: bold">FECHA 22:</h2>
+<table>
+    <tr>
+        <th>Día</th>
+        <th>Hora</th>
+        <th>Partido</th>
+    </tr>
+    {% for fixture in partidos %}
+    <tr>
+        <td>{{ fixture.dia|date:'d/m' }}</td>
+        <td>{{ fixture.hora }}</td>
+        <td>{{ fixture.local.nombre }} vs {{ fixture.visitante.nombre }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

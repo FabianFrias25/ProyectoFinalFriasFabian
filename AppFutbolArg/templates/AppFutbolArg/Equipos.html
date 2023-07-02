@@ -1,0 +1,30 @@
+{% extends "AppFutbolArg/Inicio.html" %}
+{% load static %}
+<title>{% block title %} Equipos | Liga Argentina 2023{% endblock %}</title>
+{% block contenidoQueCambia %}
+<div s class="container mt-5 margenPosiciones">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="{% url 'ver_equipo' %}" method="GET" class="mb-5">
+                {% csrf_token %}
+                <table class="tablesorter1">
+                    <thead>
+                        <tr>
+                            <th scope="col">Ingresar Nombre del Equipo</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input placeholder="Equipo" type="text" name="Nombre" id="Nombre"></td>
+                            <td><button type="submit" class="btn btn-primary">Buscar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Utiliza la imagen como guía para ingresar correctamente el nombre</p>
+            </form>
+        </div>
+    </div>
+    <img class="masthead-avatar mb-5" src="{% static 'AppFutbolArg/assets/img/equipos_.jpg' %}" alt="">
+{% endblock %}
+</div>

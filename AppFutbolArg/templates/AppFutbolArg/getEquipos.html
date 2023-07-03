@@ -3,34 +3,54 @@
 <title>{% block title %}Equipos Argentinos | Liga Argentina 2023{% endblock %}</title>
 {% block contenidoQueCambia %}
 <div class="contenido">
-{% if equipo %}
+    {% if equipos %}
     <div class="container mt-5 margenPosiciones">
         <h2 style="color: darkblack; font-weight: bold">Resultado de la búsqueda:</h2>
         <table id="posiciones" class="tablesorter1">
-            <thead>
-                <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Fundación</th>
-                    <th scope="col">Ligas Ganadas</th>
-                </tr>
-            </thead>
             <tbody>
-                {% for equipo_obj in equipo %}
-                    <tr style="color: white">
-                        <td>{{ equipo_obj.nombre }}</td>
-                        <td> {{ equipo_obj.fundacion|date:"d/m/Y" }}<p>(dd/mm/aa)</p> </td>
-                        <td>{{ equipo_obj.ligasGanadas }}</td>
-                    </tr>
+                {% for equipo in equipos %}
+                <tr>
+                    <th scope="row">Nombre</th>
+                    <td>{{ equipo.nombre }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Fundación(dd/mm/aa)</th>
+                    <td>{{ equipo.fundacion|date:"d/m/Y" }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ligas Ganadas</th>
+                    <td>{{ equipo.ligas }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Copas Nacionales</th>
+                    <td>{{ equipo.nacionales }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Copas Internacionales</th>
+                    <td>{{ equipo.internacionales }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ciudad</th>
+                    <td>{{ equipo.ciudad }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Apodo</th>
+                    <td>{{ equipo.apodo }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Estadio</th>
+                    <td>{{ equipo.estadio }}</td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-{% else %}
-    <div class="container mt-5 margenPosiciones" >
+    {% else %}
+    <div class="container mt-5 margenPosiciones">
         <h2>No se encontraron equipos</h2>
         <p>Utiliza la imagen como guía para ingresar correctamente el nombre</p>
         <a class="btn btn-primary" href="{% url 'Equipos' %}">Regresar</a>
     </div>
-{% endif %}
+    {% endif %}
 </div>
 {% endblock %}

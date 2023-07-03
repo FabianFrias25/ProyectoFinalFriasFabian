@@ -25,6 +25,9 @@ class Posiciones(models.Model):
     equipo = models.OneToOneField(Equipos, on_delete=models.CASCADE, null=True, blank=True)
     puntos = models.IntegerField()
     partidosJugados = models.IntegerField(default=0)
+    ganados = models.IntegerField(default=0)
+    empatados = models.IntegerField(default=0)
+    perdidos = models.IntegerField(default=0)
 
     def __str__(self):
         return f'{self.equipo.nombre} - PJ: {self.partidosJugados}'

@@ -10,7 +10,10 @@
                 <th>#</th>
                 <th>Equipo</th>
                 <th class="pts">Puntos</th>
-                <th class="pj">Partidos Jugados</th>
+                <th class="pj">PJ</th>
+                <th class="g">G</th>
+                <th class="e">E</th>
+                <th class="p">P</th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +22,10 @@
                 <td>{{ forloop.counter }}</td>
                 <td>{{ posicion.equipo.nombre }}</td>
                 <td>{{ posicion.puntos }}</td>
-                <td>{{ posicion.PartidosJugados }}</td>
+                <td>{{ posicion.partidosJugados }}</td>
+                <td>{{ posicion.ganados }}</td>
+                <td>{{ posicion.empatados }}</td>
+                <td>{{ posicion.perdidos }}</td>
             </tr>
             {% endfor %}
         </tbody>

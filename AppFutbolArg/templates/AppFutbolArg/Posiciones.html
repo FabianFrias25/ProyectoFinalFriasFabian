@@ -2,7 +2,7 @@
 {% load static %}
 <title>{% block title %}Posiciones | Liga Argentina 2023{% endblock %}</title>
 {% block contenidoQueCambia %}
-<div class="contenido">
+<div class="equipofondo">
     <div class="container mt-5 margenPosiciones">
     <table id="posiciones" class="tablesorter1">
         <thead>
@@ -11,9 +11,10 @@
                 <th>Equipo</th>
                 <th class="pts">Puntos</th>
                 <th class="pj">PJ</th>
-                <th class="g">G</th>
-                <th class="e">E</th>
-                <th class="p">P</th>
+                <th class="g">Gan.</th>
+                <th class="e">Emp.</th>
+                <th class="p">Per.</th>
+                <th class="d">Dif Gol</th>
             </tr>
         </thead>
         <tbody>
@@ -26,6 +27,7 @@
                 <td>{{ posicion.ganados }}</td>
                 <td>{{ posicion.empatados }}</td>
                 <td>{{ posicion.perdidos }}</td>
+                <td>{{ posicion.difgol }}</td>
             </tr>
             {% endfor %}
         </tbody>

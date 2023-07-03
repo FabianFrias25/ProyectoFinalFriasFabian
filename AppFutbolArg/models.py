@@ -28,7 +28,7 @@ class Posiciones(models.Model):
     ganados = models.IntegerField(default=0)
     empatados = models.IntegerField(default=0)
     perdidos = models.IntegerField(default=0)
-
+    difgol= models.IntegerField(default=0)
     def __str__(self):
         return f'{self.equipo.nombre} - PJ: {self.partidosJugados}'
 

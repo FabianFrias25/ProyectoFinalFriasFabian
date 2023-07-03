@@ -19,7 +19,7 @@ def ver_fixture(request):
 
 
 def ver_posiciones(request):
-    posiciones = Posiciones.objects.order_by('-puntos', '-ganados')
+    posiciones = Posiciones.objects.order_by('-puntos', '-ganados', '-difgol')
     return render(request, 'AppFutbolArg/Posiciones.html', {'posiciones': posiciones})
 
 

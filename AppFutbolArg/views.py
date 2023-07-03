@@ -19,7 +19,7 @@ def ver_fixture(request):
 
 
 def ver_posiciones(request):
-    posiciones = Posiciones.objects.order_by('-puntos', '-ganados', '-difgol')
+    posiciones = Posiciones.objects.order_by('-puntos', '-difgol')
     return render(request, 'AppFutbolArg/Posiciones.html', {'posiciones': posiciones})
 
 
@@ -43,7 +43,7 @@ def registro(request):
 
 def ver_login(request):
     if request.method == 'POST':
-        username = request.POST['username']
+        username = request.POST['user']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:

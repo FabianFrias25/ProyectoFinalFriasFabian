@@ -27,7 +27,7 @@ def ver_equipo(request):
     if "Nombre" in request.GET:
         nombre = request.GET["Nombre"]
         equipo = Equipos.objects.filter(nombre=nombre)
-        return render(request, "AppFutbolArg/getEquipos.html", {"equipo": equipo})
+        return render(request, "AppFutbolArg/getEquipos.html", {"equipos": equipo})
 
 
 def registro(request):

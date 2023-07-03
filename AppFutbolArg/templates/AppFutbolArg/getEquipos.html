@@ -6,15 +6,15 @@
     {% if equipos %}
     <div class="container mt-5 margenPosiciones">
         <h2 style="color: darkblack; font-weight: bold">Resultado de la búsqueda:</h2>
-        <table id="posiciones" class="tablesorter1">
+        <table id="posiciones" class="td">
             <tbody>
                 {% for equipo in equipos %}
                 <tr>
-                    <th scope="row">Nombre</th>
-                    <td>{{ equipo.nombre }}</td>
+                    <th scope="row">Nombre Completo</th>
+                    <td>{{ equipo.completo }}</td>
                 </tr>
                 <tr>
-                    <th scope="row">Fundación(dd/mm/aa)</th>
+                    <th scope="row">Fundación (dd/mm/aa)</th>
                     <td>{{ equipo.fundacion|date:"d/m/Y" }}</td>
                 </tr>
                 <tr>
@@ -38,7 +38,7 @@
                     <td>{{ equipo.apodo }}</td>
                 </tr>
                 <tr>
-                    <th scope="row">Estadio</th>
+                    <th scope="row">Nombre del Estadio</th>
                     <td>{{ equipo.estadio }}</td>
                 </tr>
                 {% endfor %}

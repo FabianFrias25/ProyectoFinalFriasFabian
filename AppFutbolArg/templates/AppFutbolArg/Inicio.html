@@ -45,10 +45,13 @@
                     </div>
                     <p class="pre-wrap masthead-subheading font-weight-light mb-0"> ¡Bienvenidos a la liga de Los Campeones del Mundo!</p>
                 </div>
+                {% if user.is_authenticated %}
+                {% else %}
                 <div>
                     <a class="btn btn-primary btn-black" href="{% url 'login' %}">Iniciar Sesion</a>
                     <a class="btn btn-primary btn-black" href="{% url 'registro' %}">Registrarse</a>
                 </div>
+                {% endif %}
             </header>
             {% endblock %}
         </div>

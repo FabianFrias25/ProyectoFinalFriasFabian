@@ -5,7 +5,7 @@
 <div class="contenido">
     {% if equipos %}
     <div class="container mt-5 margenPosiciones">
-        <h2 style="color: darkblack; font-weight: bold">Resultado de la búsqueda:</h2>
+        <h2 style="color: darkblack; font-weight: bold; background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,0.8688725490196079) 0%);">Resultado de la búsqueda:</h2>
         <table id="posiciones" class="td">
             <tbody>
                 {% for equipo in equipos %}
@@ -46,8 +46,8 @@
         </table>
     </div>
     {% else %}
-    <div class="container mt-5 margenPosiciones">
-        <h2>No se encontraron equipos</h2>
+    <div class="container mt-5 margenPosiciones" style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,0.8688725490196079) 0%);">
+       <h1 style="font-weight: bold;">No se encontraron equipos</h1>
         <p>Utiliza la imagen como guía para ingresar correctamente el nombre</p>
         <a class="btn btn-primary" href="{% url 'Equipos' %}">Regresar</a>
     </div>

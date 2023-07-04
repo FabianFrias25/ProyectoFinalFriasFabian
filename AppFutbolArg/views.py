@@ -35,7 +35,7 @@ def registro(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('inicio')
+            return render(request, 'AppFutbolArg/login.html')
     else:
         form = RegistrationForm()
     return render(request, 'AppFutbolArg/registro.html', {'form': form})
@@ -48,7 +48,7 @@ def ver_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('inicio')
+            return render(request, 'AppFutbolArg/Inicio.html')
         else:
             return render(request, 'AppFutbolArg/login.html', {'error': 'Nombre de usuario o contraseña incorrectos.'})
     return render(request, 'AppFutbolArg/login.html')

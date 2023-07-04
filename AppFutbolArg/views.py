@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from .models import Equipos, Posiciones, Fixture
+from .models import Equipos, Posiciones, Fixture, Blogs
 from .forms import RegistrationForm
 
 
@@ -55,20 +55,27 @@ def ver_login(request):
 
 
 @login_required
-def prode(request):
+def ver_blogs(request):
+    blogs = Blogs.objects.all()
+    return render(request, 'AppFutbolArg/Blogs/blogs.html', {'blogs': blogs})
+
+
+@login_required
+def detalle_blog(request, blog_id):
+    blog = get_object_or_404(Blogs, pk=blog_id)
+    return render(request, 'AppFutbolArg/Blogs/leermas.html', {'blog': blog})
+
+
+@login_required
+@login_required
+def bloguear(request):
     if request.method == 'POST':
-        fixture_id = request.POST.get('fixture_id')
-        resultado_local = request.POST.get('resultado_local')
-        resultado_visitante = request.POST.get('resultado_visitante')
-
-        fixture = Fixture.objects.get(id=fixture_id)
-        usuario = request.user
-
-        prode, created = Prode.objects.get_or_create(fixture=fixture, usuario=usuario)
-        prode.resultadoLocal = resultado_local
-        prode.resultadoVisitante = resultado_visitante
-        prode.save()
-
-        return render(request, 'AppFutbolArg/Prode.html')
-
-    return render(request, 'AppFutbolArg/Prode.html')
+        form = BlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            blog = form.save(commit=False)
+            blog.autor = request.user
+            blog.save()
+            return render(request, 'AppFutbolArg/Blogs/blogs.html')
+    else:
+        form = BlogForm()
+    return render(request, 'AppFutbolArg/Blogs/bloguear.html', {'form': form})

@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
 
 
 class Equipos(models.Model):
@@ -52,16 +51,16 @@ class Fixture(models.Model):
         verbose_name_plural = "Fixture"
 
 
-class Prode(models.Model):
-    fixture = models.ForeignKey(Fixture, on_delete=models.CASCADE)
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
-    resultadoLocal = models.IntegerField()
-    resultadoVisitante = models.IntegerField()
+class Blogs(models.Model):
+    titulo = models.CharField(max_length=100)
+    subtitulo = models.CharField(max_length=200)
+    cuerpo = models.TextField()
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
+    fecha = models.DateTimeField(auto_now_add=True)
+    imagen = models.ImageField(upload_to='blog_images')
 
     def __str__(self):
-        return self.usuario
+        return f'{self.titulo} - {self.autor}'
 
-
-def validate_positive_or_null(value):
-    if value is not None and value < 0:
-        raise ValidationError("El resultado debe ser un número positivo o nulo.")
+    class Meta:
+        verbose_name_plural = "Blogs"

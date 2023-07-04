@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Equipos, Fixture, Posiciones, Prode
+from .models import Equipos, Fixture, Posiciones, Blogs
 
 
 admin.site.register(Equipos)
 admin.site.register(Fixture)
 admin.site.register(Posiciones)
-admin.site.register(Prode)
+admin.site.register(Blogs)

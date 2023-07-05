@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "../inicio.html" %}
+{% load static %}
+<title>{% block title %}Blogs{% endblock %}</title>
 
-</body>
-</html>
+{% block contenidoQueCambia %}
+<div class="container">
+    <h1>Blogs</h1>
+    {% for blog in blogs %}
+    <div class="blog-entry">
+        <h2>{{ blog.titulo }}</h2>
+        <h3>{{ blog.subtitulo }}</h3>
+        <p>Autor: {{ blog.autor }}</p>
+        <p>Fecha: {{ blog.fecha }}</p>
+        <img src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">
+
+        <p>{{ blog.cuerpo|truncatechars:150 }}</p>
+        <a href="{{ blog.get_absolute_url }}">Leer más</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

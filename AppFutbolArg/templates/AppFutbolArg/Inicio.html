@@ -24,7 +24,7 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'Posiciones' %}">TABLA DE POSICIONES</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'Fixture' %}">FIXTURE</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'Equipos' %}">EQUIPOS</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'Prode' %}">PRODE</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'Blogs' %}">BLOGS</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'logout' %}">Logout</a></li>
                     </ul>
                 </div>
@@ -46,6 +46,7 @@
                     <p class="pre-wrap masthead-subheading font-weight-light mb-0"> ¡Bienvenidos a la liga de Los Campeones del Mundo!</p>
                 </div>
                 {% if user.is_authenticated %}
+                <a class="btn btn-primary" href="{% url 'perfil' %}">Ir a Perfil</a>
                 {% else %}
                 <div>
                     <a class="btn btn-primary btn-black" href="{% url 'login' %}">Iniciar Sesion</a>

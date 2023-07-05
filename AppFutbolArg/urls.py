@@ -13,5 +13,7 @@ urlpatterns = [
     path('blogs/<int:blog_id>/', detalle_blog, name='detalle_blog'),
     path('registro/', registro, name="registro"),
     path('login/', ver_login, name="login"),
+    path('perfil/', ver_perfil, name='perfil'),
+    path('Perfil/editarPerfil/', editarPerfil, name="editarPerfil"),
     path('logout/', LogoutView.as_view(template_name='AppFutbolArg/login.html'), name="logout"),
 ]

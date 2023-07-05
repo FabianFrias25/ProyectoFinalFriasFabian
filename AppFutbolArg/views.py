@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from .models import Equipos, Posiciones, Fixture, Blogs
-from .forms import RegistrationForm
+from .forms import RegistrationForm, UserEditForm
 
 
 def Inicio(request):
@@ -67,7 +67,6 @@ def detalle_blog(request, blog_id):
 
 
 @login_required
-@login_required
 def bloguear(request):
     if request.method == 'POST':
         form = BlogForm(request.POST, request.FILES)
@@ -79,3 +78,21 @@ def bloguear(request):
     else:
         form = BlogForm()
     return render(request, 'AppFutbolArg/Blogs/bloguear.html', {'form': form})
+
+
+@login_required
+def ver_perfil(request):
+    return render(request, 'AppFutbolArg/Perfil/perfil.html')
+
+
+@login_required
+def editarPerfil(request):
+    usuario = request.user
+    if request.method == "POST":
+        form = UserEditForm(request.POST, instance=usuario)
+        if form.is_valid():
+            form.save()
+            return render(request, 'AppFutbolArg/Perfil/perfil.html')
+    else:
+        form = UserEditForm(instance=usuario)
+    return render(request, 'AppFutbolArg/Perfil/editarPerfil.html', {"form": form})

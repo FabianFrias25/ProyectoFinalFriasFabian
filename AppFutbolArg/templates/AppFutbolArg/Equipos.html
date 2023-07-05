@@ -6,12 +6,11 @@
 <div class="container mt-5 margenPosiciones">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <form action="{% url 'ver_equipo' %}" method="GET" class="mb-5">
-                {% csrf_token %}
+            <form action="{% url 'ver_equipo' %}" method="GET" class="mb-5"> {% csrf_token %}
                 <table class="tablesorter1">
                     <thead>
                         <tr>
-                            <th scope="col">Ingresar Nombre del Equipo</th>
+                            <th scope="col">Ingresar el nombre del equipo:</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -22,7 +21,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <p style="color: black; background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,0.8688725490196079) 0%);">Utiliza la imagen como guía para ingresar correctamente el nombre</p>
+                <p class="subrayado">Utiliza la imagen como guía para ingresar correctamente el nombre</p>
             </form>
         </div>
     </div>

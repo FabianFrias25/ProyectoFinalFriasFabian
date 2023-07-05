@@ -3,17 +3,16 @@
 <title>{% block title %}Perfil{% endblock %}</title>
 
 {% block contenidoQueCambia %}
-<div class="pararegistro formRegistro">
-
-<h3>Editar Perfil</h3>
-<h6>{{user.username}}</h6>
-
-<form method="POST"> {% csrf_token %}
-    <table id="posiciones" class="tablesorter1">
-        {{ form.as_table }}
-    </table>
-    <input type="submit" value="Editar perfil">
-</form>
-<a href="/AppFutbolArg/Perfil/changePassword">Cambiar contraseña</a>
+<div class="contenido  margenPosiciones">
+    <div class="container mt-5 margenPosiciones">
+        <h3 class="subrayado" style="color: black; font-weight: bold; ">Editar Perfil</h3>
+        <form method="POST"> {% csrf_token %}
+            <table id="posiciones" class="tablesorter1">
+                {{ form.as_table }}
+            </table>
+            <input type="submit" value="Editar perfil">
+        </form>
+        <a href="/AppFutbolArg/Perfil/changePassword">Cambiar contraseña</a>
+    </div>
 </div>
 {% endblock %}

@@ -109,7 +109,7 @@ table td {
 .formRegistro {
     font-weight: bold;
     background: rgb(48,136,255);
-    background: linear-gradient(90deg, rgba(48,136,255,1) 30%, rgba(255,255,255,1) 50%, rgba(54,139,255,1) 70%);
+    background: linear-gradient(90deg, rgba(48,136,255,1) 30%, rgba(207,222,203,1) 50%, rgba(54,139,255,1) 70%);
     padding: 40px 20px 20px 20px;
     border-radius: 5px;
     width: 400px;
@@ -132,6 +132,34 @@ table td {
 .contenidoBlogs {
     background-image: url("../assets/img/canchavertical.jpg");
     position: absolute !important;
-    height: 100% !important;
+    height: auto !important;
     width: 100% !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+
+.formBlog {
+    font-weight: bold;
+    background: rgb(197,139,11);
+    padding: 40px 20px 20px 20px;
+    border-radius: 10px;
+    width: 400px;
+    height: 600px;
+}
+
+
+.prevBlogs {
+    font-weight: bold;
+    background: rgb(197, 139, 11);
+    padding: 10px 20px 20px 20px;
+    border-radius: 10px;
+    height: auto;
+    width: 400px;
+}
+
+.blog-image {
+    max-width: 100%;
+    height: auto;
 }

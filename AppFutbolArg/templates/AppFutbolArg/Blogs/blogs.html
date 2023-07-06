@@ -6,14 +6,14 @@
 <div class="contenidoBlogs">
     <div class="container mt-5 margenPosiciones">
         <h1 style="display: flex; justify-content: center; color: #1D086C; font-weight: bold;">Blogs de Futbol</h1>
+        <p style="color: white;">Animate a públicar tu blogs de Futbol: <a href="/AppFutbolArg/blogs/bloguear" class="btn btn-success">BLOGUEA</a></p>
         {% for blog in blogs %}
-        <div class="blog-entry">
-            <h2>{{ blog.titulo }}</h2>
+        <div class="prevBlogs">
+            <h2 style="font-weight: bold;">{{ blog.titulo }}</h2>
             <h3>{{ blog.subtitulo }}</h3>
             <p>Autor: {{ blog.autor }}</p>
             <p>Fecha: {{ blog.fecha }}</p>
-            <img src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">
-
+            <img class="blog-image" src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">
             <p>{{ blog.cuerpo|truncatechars:150 }}</p>
             <a href="{{ blog.get_absolute_url }}">Leer más</a>
         </div>

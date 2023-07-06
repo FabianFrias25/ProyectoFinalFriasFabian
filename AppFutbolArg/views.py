@@ -56,7 +56,7 @@ def ver_login(request):
 
 @login_required
 def ver_blogs(request):
-    blogs = Blogs.objects.all()
+    blogs = Blogs.objects.all().distinct()
     return render(request, 'AppFutbolArg/Blogs/blogs.html', {'blogs': blogs})
 
 

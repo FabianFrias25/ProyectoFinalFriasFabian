@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "../inicio.html" %}
+{% load static %}
 
-</body>
-</html>
+<title>{% block title %}Crear Blog{% endblock %}</title>
+
+{% block contenidoQueCambia %}
+<div class="contenidoBlogs">
+    <div class="container mt-5 margenPosiciones">
+      <h1 style="color: #8e8fff; font-weight: bold; display: flex; justify-content: center; align-items: center;">Escribe tu Blog</h1>
+      <div class="d-flex justify-content-center">
+        <form method="POST" enctype="multipart/form-data" class="formBlog"> {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">Publicar</button>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock %}

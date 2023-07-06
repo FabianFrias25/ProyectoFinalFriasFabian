@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from .models import Equipos, Posiciones, Fixture, Blogs
-from .forms import RegistrationForm, UserEditForm
+from .forms import RegistrationForm, UserEditForm, BlogForm
 
 
 def Inicio(request):

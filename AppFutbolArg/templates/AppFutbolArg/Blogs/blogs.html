@@ -3,19 +3,21 @@
 <title>{% block title %}Blogs{% endblock %}</title>
 
 {% block contenidoQueCambia %}
-<div class="container">
-    <h1>Blogs</h1>
-    {% for blog in blogs %}
-    <div class="blog-entry">
-        <h2>{{ blog.titulo }}</h2>
-        <h3>{{ blog.subtitulo }}</h3>
-        <p>Autor: {{ blog.autor }}</p>
-        <p>Fecha: {{ blog.fecha }}</p>
-        <img src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">
+<div class="contenidoBlogs">
+    <div class="container mt-5 margenPosiciones">
+        <h1 style="display: flex; justify-content: center; color: #1D086C; font-weight: bold;">Blogs de Futbol</h1>
+        {% for blog in blogs %}
+        <div class="blog-entry">
+            <h2>{{ blog.titulo }}</h2>
+            <h3>{{ blog.subtitulo }}</h3>
+            <p>Autor: {{ blog.autor }}</p>
+            <p>Fecha: {{ blog.fecha }}</p>
+            <img src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">
 
-        <p>{{ blog.cuerpo|truncatechars:150 }}</p>
-        <a href="{{ blog.get_absolute_url }}">Leer más</a>
+            <p>{{ blog.cuerpo|truncatechars:150 }}</p>
+            <a href="{{ blog.get_absolute_url }}">Leer más</a>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
+from .models import Blogs
 
 
 class RegistrationForm(UserCreationForm):
@@ -25,3 +26,9 @@ class UserEditForm(UserChangeForm):
         model = User
         fields = ['username', 'email', 'first_name', 'last_name', 'nacionalidad', 'hincha']
         help_texts = {k:"" for k in fields}
+
+
+class BlogForm(forms.ModelForm):
+    class Meta:
+        model = Blogs
+        fields = ['titulo', 'subtitulo', 'cuerpo', 'imagen']

@@ -131,22 +131,9 @@ table td {
 
 .contenidoBlogs {
     background-image: url("../assets/img/canchavertical.jpg");
-    position: absolute !important;
-    height: auto !important;
-    width: 100% !important;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 20px;
-}
-
-
-.formBlog {
-    font-weight: bold;
-    background: rgb(197,139,11);
-    padding: 40px 20px 20px 20px;
-    border-radius: 10px;
-    width: 400px;
-    height: 600px;
 }
 
 
@@ -162,4 +149,16 @@ table td {
 .blog-image {
     max-width: 100%;
     height: auto;
+}
+
+
+.contenidoBlogsLeer {
+    background-image: url("../assets/img/futbol-background.jpg");
+    position: absolute !important;
+    height: auto !important;
+    width: 100% !important;
+}
+
+.blogsLeer {
+    background-color: #B1D643
 }

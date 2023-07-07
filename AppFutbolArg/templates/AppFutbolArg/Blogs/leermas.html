@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "../inicio.html" %}
+{% load static %}
 
-</body>
-</html>
+<title>{% block title %}Detalle del Blog{% endblock %}</title>
+
+{% block contenidoQueCambia %}
+<div class="contenidoBlogsLeer">
+    <div class="container mt-5 margenPosiciones">
+        <div class="blogsLeer">
+            <p>Autor: {{ blog.autor }} - {{ blog.fecha|date:"d/m/Y" }}</p>
+            <h2 style="font-weight: bold;">{{ blog.titulo }}</h2>
+            <h3>{{ blog.subtitulo }}</h3>
+            <img src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">
+            <p>{{ blog.cuerpo }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

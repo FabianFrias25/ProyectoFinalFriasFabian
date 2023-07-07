@@ -125,6 +125,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/AppFutbolArg/login'
+LOGOUT_REDIRECT_URL = '/AppFutbolArg/login/'
 
 
 MEDIA_URL = '/media/'

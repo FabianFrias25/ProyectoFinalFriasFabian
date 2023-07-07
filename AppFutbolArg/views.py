@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from .models import Equipos, Posiciones, Fixture, Blogs
@@ -35,7 +35,7 @@ def registro(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'AppFutbolArg/login.html')
+            return redirect('../login')
     else:
         form = RegistrationForm()
     return render(request, 'AppFutbolArg/registro.html', {'form': form})

@@ -31,27 +31,33 @@ def ver_equipo(request):
 
 
 def registro(request):
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('../login')
+    if request.user.is_authenticated:
+        return redirect('Inicio')
     else:
-        form = RegistrationForm()
-    return render(request, 'AppFutbolArg/registro.html', {'form': form})
+        if request.method == 'POST':
+            form = RegistrationForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('../login')
+        else:
+            form = RegistrationForm()
+        return render(request, 'AppFutbolArg/registro.html', {'form': form})
 
 
 def ver_login(request):
-    if request.method == 'POST':
-        username = request.POST['user']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return render(request, 'AppFutbolArg/Inicio.html')
-        else:
-            return render(request, 'AppFutbolArg/login.html', {'error': 'Nombre de usuario o contraseña incorrectos.'})
-    return render(request, 'AppFutbolArg/login.html')
+    if request.user.is_authenticated:
+        return redirect('Inicio')
+    else:
+        if request.method == 'POST':
+            username = request.POST['user']
+            password = request.POST['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return render(request, 'AppFutbolArg/Inicio.html')
+            else:
+                return render(request, 'AppFutbolArg/login.html', {'error': 'Nombre de usuario o contraseña incorrectos.'})
+        return render(request, 'AppFutbolArg/login.html')
 
 
 @login_required

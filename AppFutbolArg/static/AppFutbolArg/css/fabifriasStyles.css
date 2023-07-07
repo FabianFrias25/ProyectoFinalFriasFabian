@@ -131,22 +131,34 @@ table td {
 
 .contenidoBlogs {
     background-image: url("../assets/img/canchavertical.jpg");
-    background-size: cover;
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    position: absolute !important;
+    height: auto !important;
+    width: 100% !important;
+    min-height: 100vh;
 }
-
 
 .prevBlogs {
     font-weight: bold;
-    background: rgb(197, 139, 11);
-    padding: 10px 20px 20px 20px;
+    padding: 10px;
     border-radius: 10px;
-    height: auto;
-    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
+
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.blog-item {
+    flex-basis: calc(25% - 20px);
+    background-color: rgb(197, 139, 11);
+    padding: 20px;
+    border-radius: 10px;
+}
+
 
 .blog-image {
     max-width: 100%;
@@ -160,6 +172,7 @@ table td {
     position: absolute !important;
     height: auto !important;
     width: 100% !important;
+    min-height: 100vh;
 }
 
 .blogsLeer {

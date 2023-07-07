@@ -5,6 +5,7 @@
 {% block contenidoQueCambia %}
 <div class="paralogin">
     <div class="formRegistro">
+        <img src="{{ avatar }}" alt="Avatar" style="width: 100px; height: 100px;">
         <ul>
             <li><p>Username: {{ user.username }}</p></li>
             <li><p>Nombre/s: {{ user.first_name }}</p></li>
@@ -12,8 +13,8 @@
             <li><p>Nacionalidad: {{ user.nacionalidad }}</p></li>
             <li><p>Hincha de: {{ user.hincha }}</p></li>
         </ul>
-        <a href="/AppFutbolArg/Perfil/editarPerfil" class="btn btn-success" style="text-decoration: none; color: white;">Editar Perfil</a>
-        <a href="/AppFutbolArg/Perfil/changeAvatar" class="btn btn-success" style="text-decoration: none; color: white;">Avatar</a>
+        <a href="/AppFutbolArg/perfil/editarPerfil" class="btn btn-success" style="text-decoration: none; color: white;">Editar Perfil</a>
+        <a href="/AppFutbolArg/perfil/cambiarAvatar/" class="btn btn-success" style="text-decoration: none; color: white;">Avatar</a>
     </div>
 </div>
 {% endblock %}

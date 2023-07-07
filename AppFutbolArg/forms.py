@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
-from .models import Blogs
+from .models import Blogs, Avatar
 
 
 class RegistrationForm(UserCreationForm):
@@ -15,20 +15,27 @@ class RegistrationForm(UserCreationForm):
 
 
 class UserEditForm(UserChangeForm):
-    username = forms.CharField(widget= forms.TextInput(attrs={"placeholder":"Username"}))
-    email = forms.CharField(widget= forms.TextInput(attrs={"placeholder":"Email"}))
-    first_name = forms.CharField(widget= forms.TextInput(attrs={"placeholder":"First Name"}))
-    last_name = forms.CharField(widget= forms.TextInput(attrs={"placeholder":"Last Name"}))
-    nacionalidad = forms.CharField(widget= forms.TextInput(attrs={"placeholder":"Nacionalidad"}))
+    username = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Username"}))
+    email = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Email"}))
+    first_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "First Name"}))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Last Name"}))
+    nacionalidad = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Nacionalidad"}))
     hincha = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Hincha de"}))
 
     class Meta:
         model = User
         fields = ['username', 'email', 'first_name', 'last_name', 'nacionalidad', 'hincha']
-        help_texts = {k:"" for k in fields}
+        help_texts = {k: "" for k in fields}
 
 
 class BlogForm(forms.ModelForm):
     class Meta:
         model = Blogs
         fields = ['titulo', 'subtitulo', 'cuerpo', 'imagen']
+
+
+class AvatarForm(forms.Form):
+    avatar = forms.ImageField()
+    class Meta:
+        model = Avatar
+        fields = ['image']

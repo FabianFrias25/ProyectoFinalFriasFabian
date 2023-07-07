@@ -7,14 +7,16 @@
 <div class="contenidoBlogsLeer">
     <div class="container mt-5 margenPosiciones">
         <div class="blogsLeer">
-            <p>Autor: {{ blog.autor }} - {{ blog.fecha|date:"d/m/Y" }}</p>
+            <h6 style="font-weight: bold;">Autor: {{ blog.autor }} - {{ blog.fecha|date:"d/m/Y" }}</h6>
             <h2 style="font-weight: bold;">{{ blog.titulo }}</h2>
             <h3>{{ blog.subtitulo }}</h3>
             <img src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">
             <p>{{ blog.cuerpo }}</p>
         {% if user.is_superuser or blog.autor == user %}
-            <a href="{% url 'editar_blog' blog_id=blog.id %}">Editar</a>
-            <a href="{% url 'eliminar_blog' blog_id=blog.id %}">Eliminar</a>
+            <div class="botonesEditarEliminar">
+                <a href="{% url 'editar_blog' blog_id=blog.id %}" class="btn-editar">Editar</a>
+                <a href="{% url 'eliminar_blog' blog_id=blog.id %}" class="btn-eliminar">Eliminar</a>
+            </div>
         {% endif %}
         </div>
     </div>

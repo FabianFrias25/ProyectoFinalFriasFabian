@@ -6,11 +6,12 @@
 {% block contenidoQueCambia %}
 <div class="contenidoBlogs">
     <div class="container mt-5 margenPosiciones">
-      <h1 style="color: #8e8fff; font-weight: bold; display: flex; justify-content: center; align-items: center;">Escribe tu Blog</h1>
       <div class="d-flex justify-content-center">
-        <form method="POST" enctype="multipart/form-data" class="formBlog"> {% csrf_token %}
-          {{ form.as_p }}
+        <form method="POST" enctype="multipart/form-data" class="formBlogsEditar"> {% csrf_token %}
+          <h1 style="color: #281c34; font-weight: bold; display: flex; justify-content: center; align-items: center;">Escribe tu Blog</h1>
+            {{ form.as_p }}
           <button type="submit" class="btn btn-primary">Publicar</button>
+            <a href="{% url 'Blogs' %}" class="btn btn-secondary">Cancelar</a>
         </form>
       </div>
     </div>

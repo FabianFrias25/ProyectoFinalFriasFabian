@@ -4,6 +4,7 @@
     position: absolute !important;
     height: 100% !important;
     width: 100% !important;
+    min-height: 100vh;
 }
 
 .equipofondo {
@@ -11,6 +12,7 @@
     position: absolute !important;
     height: auto !important;
     width: 100% !important;
+    min-height: 100vh;
 }
 
 
@@ -155,7 +157,8 @@ table td {
 
 .blog-item {
     flex-basis: calc(25% - 20px);
-    background-color: rgb(197, 139, 11);
+    background: rgb(89,173,49);
+    background: linear-gradient(90deg, rgba(89,173,49,0.8072478991596639) 8%, rgba(113,166,95,0.8324579831932774) 100%);
     padding: 20px;
     border-radius: 10px;
 }
@@ -239,4 +242,26 @@ table td {
     margin-right: 10px;
 }
 
+
+.contenidoBlogsEditar {
+    background-image: url("../assets/img/canchahorizontal.jpg");
+    background-size: cover;
+    position: absolute !important;
+    height: auto !important;
+    width: 100% !important;
+    display: flex;
+    min-height: 100vh;
+}
+
+
+.formBlogsEditar {
+    font-weight: bold;
+    background: rgb(89,173,49);
+    background: linear-gradient(90deg, rgba(89,173,49,0.8072478991596639) 8%, rgba(113,166,95,0.8324579831932774) 100%);
+    padding: 40px 20px 20px 20px;
+    border-radius: 5px;
+    width: 400px;
+    height: 700px;
+    justify-content: center;
+}
 

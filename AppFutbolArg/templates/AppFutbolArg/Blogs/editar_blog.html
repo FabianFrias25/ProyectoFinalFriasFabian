@@ -4,16 +4,18 @@
 <title>{% block title %}Editar Blog{% endblock %}</title>
 
 {% block contenidoQueCambia %}
-<div class="contenidoBlogs">
+<div class="contenidoBlogsEditar">
     <div class="container mt-5 margenPosiciones">
-        <h1 style="display: flex; justify-content: center; color: #1D086C; font-weight: bold;">Editar Blog</h1>
-        <form method="POST" enctype="multipart/form-data" class="formBlog"> {% csrf_token %}
-            {{ form.as_p }}
-        <div style="display: flex; justify-content: center; margin-top: 10px;">
-            <button type="submit" class="btn btn-primary">Guardar cambios</button>
-            <a href="{% url 'detalle_blog' blog_id=blog.id %}" class="btn btn-secondary">Cancelar</a>
+        <h1 class="subrayado" style="color: #1D086C; font-weight: bold;">Editar Blog</h1>
+        <div class="d-flex justify-content-center">
+            <form method="POST" enctype="multipart/form-data" class="formBlogsEditar"> {% csrf_token %}
+                {{ form.as_p }}
+            <div style="display: flex; justify-content: center; margin-top: 10px;">
+                <button style="margin-right: 10px;" type="submit" class="btn btn-primary">Guardar cambios</button>
+                <a href="{% url 'detalle_blog' blog_id=blog.id %}" class="btn btn-secondary">Cancelar</a>
+            </div>
+            </form>
         </div>
-        </form>
     </div>
 </div>
 {% endblock %}

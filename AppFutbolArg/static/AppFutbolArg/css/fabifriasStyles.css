@@ -202,7 +202,7 @@ table td {
 .btn-editar {
     display: inline-block;
     padding: 10px 20px;
-    background-color: blue;
+    background-color: #300097;
     color: white;
     border: none;
     border-radius: 5px;
@@ -212,9 +212,6 @@ table td {
     margin-right: 10px;
 }
 
-.btn-editar:hover {
-    background-color: darkblue;
-}
 
 
 .btn-eliminar {
@@ -229,6 +226,17 @@ table td {
     transition: background-color 0.3s;
 }
 
-.btn-eliminar:hover {
-    background-color: darkred;
+.btn-leermas {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: yellow;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-right: 10px;
 }
+
+

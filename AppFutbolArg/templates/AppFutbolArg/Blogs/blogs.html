@@ -6,7 +6,7 @@
 <div class="contenidoBlogs">
     <div class="container mt-5 margenPosiciones">
         <h1 style="display: flex; justify-content: center; color: #1D086C; font-weight: bold;">Historias del Fútbol Argentino</h1>
-        <p style="color: white;">Animate a publicar tu blog de Fútbol: <a href="/AppFutbolArg/blogs/bloguear" class="btn btn-success">BLOGUEA</a></p>
+        <p class="subrayado" style="color: black;">Animate a publicar tu blog de Fútbol: <a href="/AppFutbolArg/blogs/bloguear" class="btn btn-success">BLOGUEA</a></p>
             <div class="prevBlogs">
                 <div class="blog-container">
                     {% for blog in blogs %}
@@ -17,11 +17,13 @@
                             <p>Fecha: {{ blog.fecha }}</p>
                             <img class="blog-image" src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">
                             <p>{{ blog.cuerpo|truncatechars:150 }}</p>
-                            <a href="{% url 'detalle_blog' blog_id=blog.id %}">Leer más</a>
+                            <a href="{% url 'detalle_blog' blog_id=blog.id %}" style="color: white">Leer más</a>
 
                             {% if user.is_superuser or blog.autor == user %}
-                                <a href="{% url 'editar_blog' blog_id=blog.id %}">Editar</a>
-                                <a href="{% url 'eliminar_blog' blog_id=blog.id %}">Eliminar</a>
+                                <div class="botonesEditarEliminar">
+                                    <a href="{% url 'editar_blog' blog_id=blog.id %}" class="btn-editar">Editar</a>
+                                    <a href="{% url 'eliminar_blog' blog_id=blog.id %}" class="btn-eliminar">Eliminar</a>
+                                </div>
                             {% endif %}
                         </div>
                     {% endfor %}

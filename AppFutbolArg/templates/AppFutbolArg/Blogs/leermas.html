@@ -12,6 +12,10 @@
             <h3>{{ blog.subtitulo }}</h3>
             <img src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">
             <p>{{ blog.cuerpo }}</p>
+        {% if user.is_superuser or blog.autor == user %}
+            <a href="{% url 'editar_blog' blog_id=blog.id %}">Editar</a>
+            <a href="{% url 'eliminar_blog' blog_id=blog.id %}">Eliminar</a>
+        {% endif %}
         </div>
     </div>
 </div>

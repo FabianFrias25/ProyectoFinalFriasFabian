@@ -131,8 +131,10 @@ table td {
 
 .contenidoBlogs {
     background-image: url("../assets/img/canchavertical.jpg");
+    background-size: cover;
+    height: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
@@ -153,7 +155,8 @@ table td {
 
 
 .contenidoBlogsLeer {
-    background-image: url("../assets/img/futbol-background.jpg");
+    background-image: url("../assets/img/canchahorizontal.jpg");
+    background-size: cover;
     position: absolute !important;
     height: auto !important;
     width: 100% !important;

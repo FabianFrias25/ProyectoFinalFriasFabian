@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.http import HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
@@ -82,7 +83,7 @@ def bloguear(request):
             blog = form.save(commit=False)
             blog.autor = request.user
             blog.save()
-            return render(request, 'AppFutbolArg/Blogs/blogs.html')
+            return redirect('Blogs')
     else:
         form = BlogForm()
     return render(request, 'AppFutbolArg/Blogs/bloguear.html', {'form': form})
@@ -135,3 +136,35 @@ def getavatar(request):
     except:
         avatar = None
     return avatar
+
+
+@login_required
+def editar_blog(request, blog_id):
+    blog = get_object_or_404(Blogs, pk=blog_id)
+
+    if request.user != blog.autor and not request.user.is_superuser:
+        return HttpResponseForbidden("No tienes permiso para editar este blog.")
+
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES, instance=blog)
+        if form.is_valid():
+            form.save()
+            return redirect('detalle_blog', blog_id=blog_id)
+    else:
+        form = BlogForm(instance=blog)
+
+    return render(request, 'AppFutbolArg/Blogs/editar_blog.html', {'form': form, 'blog': blog})
+
+
+@login_required
+def eliminar_blog(request, blog_id):
+    blog = get_object_or_404(Blogs, pk=blog_id)
+
+    if request.user != blog.autor and not request.user.is_superuser:
+        return HttpResponseForbidden("No tienes permiso para eliminar este blog.")
+
+    if request.method == 'POST':
+        blog.delete()
+        return redirect('Blogs')
+
+    return render(request, 'AppFutbolArg/Blogs/eliminar_blog.html', {'blog': blog})

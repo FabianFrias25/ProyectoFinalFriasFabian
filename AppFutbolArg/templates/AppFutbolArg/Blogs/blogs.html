@@ -16,6 +16,11 @@
                 <img class="blog-image" src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">
                 <p>{{ blog.cuerpo|truncatechars:150 }}</p>
                 <a href="{% url 'detalle_blog' blog_id=blog.id %}">Leer más</a>
+
+                {% if user.is_superuser or blog.autor == user %}
+                    <a href="{% url 'editar_blog' blog_id=blog.id %}">Editar</a>
+                    <a href="{% url 'eliminar_blog' blog_id=blog.id %}">Eliminar</a>
+                {% endif %}
             {% endfor %}
         </div>
     </div>

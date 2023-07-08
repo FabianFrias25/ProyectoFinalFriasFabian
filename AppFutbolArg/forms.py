@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from .models import Blogs, Avatar
 
@@ -26,6 +26,30 @@ class UserEditForm(UserChangeForm):
         model = User
         fields = ['username', 'email', 'first_name', 'last_name', 'nacionalidad', 'hincha']
         help_texts = {k: "" for k in fields}
+
+
+class ChangePasswordForm(PasswordChangeForm):
+    old_password = forms.CharField(
+        label="",
+        widget=forms.PasswordInput(attrs={"placeholder": "Contraseña actual"}),
+        error_messages={
+            'password_incorrect': "",
+        },
+    )
+
+    new_password1 = forms.CharField(
+        label="",
+        widget=forms.PasswordInput(attrs={"placeholder": "Nueva Contraseña"}),
+    )
+
+    new_password2 = forms.CharField(
+        label="",
+        widget=forms.PasswordInput(attrs={"placeholder": "Confirmar nueva Contraseña"}),
+    )
+
+    class Meta:
+        model = User
+        fields = ['old_password', 'new_password1', 'new_password2']
 
 
 class BlogForm(forms.ModelForm):

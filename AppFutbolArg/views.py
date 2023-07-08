@@ -1,10 +1,10 @@
 # from django.contrib.auth.models import User
 from django.http import HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from .models import Equipos, Posiciones, Fixture, Blogs, Avatar
-from .forms import RegistrationForm, UserEditForm, BlogForm, AvatarForm
+from .forms import RegistrationForm, UserEditForm, BlogForm, AvatarForm, ChangePasswordForm
 
 
 # FUTBOL:
@@ -84,6 +84,29 @@ def editarPerfil(request):
     else:
         form = UserEditForm(instance=usuario)
     return render(request, 'AppFutbolArg/Perfil/editarPerfil.html', {"form": form})
+
+
+@login_required
+def changePassword(request):
+    usuario = request.user
+
+    if request.method == "POST":
+        form = ChangePasswordForm(data=request.POST, user=usuario)
+        if form.is_valid():
+            new_password1 = form.cleaned_data['new_password1']
+            new_password2 = form.cleaned_data['new_password2']
+            if new_password1 == new_password2:
+                form.save()
+                update_session_auth_hash(request, usuario)
+                return redirect('perfil')
+            else:
+                error_message = "Las contraseñas no coinciden"
+                return render(request, 'AppFutbolArg/Perfil/cambiarPassword.html',
+                              {"form": form, "error_message": error_message})
+    else:
+        form = ChangePasswordForm(user=usuario)
+
+    return render(request, 'AppFutbolArg/Perfil/cambiarPassword.html', {"form": form})
 
 
 @login_required

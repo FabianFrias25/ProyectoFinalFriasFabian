@@ -70,9 +70,13 @@ class Blogs(models.Model):
         verbose_name_plural = "Blogs"
 
 
+def avatar_image_path(instance, filename):
+    return f'avatares/{instance.id}/{filename}'
+
+
 class Avatar(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='avatares', null=True, blank=True)
+    image = models.ImageField(upload_to=avatar_image_path, null=True, blank=True)
 
     def __str__(self):
         return self.user.username

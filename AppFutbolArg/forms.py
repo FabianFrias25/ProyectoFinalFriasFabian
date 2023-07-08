@@ -34,8 +34,7 @@ class BlogForm(forms.ModelForm):
         fields = ['titulo', 'subtitulo', 'cuerpo', 'imagen']
 
 
-class AvatarForm(forms.Form):
-    avatar = forms.ImageField()
+class AvatarForm(forms.ModelForm):
     class Meta:
         model = Avatar
         fields = ['image']

@@ -10,8 +10,8 @@
             <li><p>Username: {{ user.username }}</p></li>
             <li><p>Nombre/s: {{ user.first_name }}</p></li>
             <li><p>Apellido/s: {{ user.last_name }}</p></li>
-            <li><p>Nacionalidad: {{ user.nacionalidad }}</p></li>
-            <li><p>Hincha de: {{ user.hincha }}</p></li>
+            <li><p>Nacionalidad: {{ user.profile.nacionalidad }}</p></li>
+            <li><p>Hincha de: {{ user.profile.hincha }}</p></li>
         </ul>
         <a href="/AppFutbolArg/perfil/editarPerfil" class="btn btn-success" style="text-decoration: none; color: white;">Editar Perfil</a>
         <a href="/AppFutbolArg/perfil/cambiarAvatar/" class="btn btn-success" style="text-decoration: none; color: white;">Avatar</a>

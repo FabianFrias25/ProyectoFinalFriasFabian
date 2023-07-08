@@ -1,10 +1,11 @@
+.masthead {
+  padding-top: calc(6rem + 74px);
+  padding-bottom: 6rem;
+  min-height: 100vh;
+}
 
-.contenido{
-    background-image: url("../assets/img/futbol-background.jpg");
-    position: absolute !important;
-    height: 100% !important;
-    width: 100% !important;
-    min-height: 100vh;
+.container-ajuste-vertical {
+  margin-top: -60px;
 }
 
 .equipofondo {
@@ -25,7 +26,7 @@
 
 
 .container.margenPosiciones {
-    margin-top: 100px !important;
+    margin-top: 120px !important;
 }
 
 #posiciones td {
@@ -264,4 +265,3 @@ table td {
     height: 700px;
     justify-content: center;
 }
-

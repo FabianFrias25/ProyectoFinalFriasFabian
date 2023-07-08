@@ -3,7 +3,7 @@ from django.http import HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login, authenticate, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
-from .models import Equipos, Posiciones, Fixture, Blogs, Avatar
+from .models import Equipos, Posiciones, Fixture, Blogs, Avatar, UserProfile
 from .forms import RegistrationForm, UserEditForm, BlogForm, AvatarForm, ChangePasswordForm
 
 
@@ -43,7 +43,14 @@ def registro(request):
         if request.method == 'POST':
             form = RegistrationForm(request.POST)
             if form.is_valid():
-                form.save()
+                user = form.save()  # Guardar el usuario registrado
+                nacionalidad = form.cleaned_data['nacionalidad']
+                nacimiento = form.cleaned_data['nacimiento']
+                hincha = form.cleaned_data['hincha']
+
+                perfil = UserProfile(user=user, nacionalidad=nacionalidad, nacimiento=nacimiento, hincha=hincha)
+                perfil.save()
+
                 return redirect('../login')
         else:
             form = RegistrationForm()
@@ -69,21 +76,33 @@ def ver_login(request):
 
 @login_required
 def ver_perfil(request):
+    usuario = request.user
+    try:
+        perfil = UserProfile.objects.get(user=usuario)
+    except UserProfile.DoesNotExist:
+        perfil = None
+
     avatar = getavatar(request)
-    return render(request, 'AppFutbolArg/Perfil/perfil.html', {'avatar': avatar})
+    return render(request, 'AppFutbolArg/Perfil/perfil.html', {'avatar': avatar, 'perfil': perfil})
 
 
 @login_required
 def editarPerfil(request):
     usuario = request.user
+    try:
+        perfil = UserProfile.objects.get(user=usuario)
+    except UserProfile.DoesNotExist:
+        perfil = None
+
     if request.method == "POST":
         form = UserEditForm(request.POST, instance=usuario)
         if form.is_valid():
             form.save()
-            return render(request, 'AppFutbolArg/Perfil/perfil.html')
+            return redirect('perfil')
     else:
         form = UserEditForm(instance=usuario)
-    return render(request, 'AppFutbolArg/Perfil/editarPerfil.html', {"form": form})
+
+    return render(request, 'AppFutbolArg/Perfil/editarPerfil.html', {"form": form, "perfil": perfil})
 
 
 @login_required

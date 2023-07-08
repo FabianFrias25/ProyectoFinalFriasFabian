@@ -83,3 +83,16 @@ class Avatar(models.Model):
 
     class Meta:
         verbose_name_plural = "Avatar"
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    nacimiento = models.DateField(blank=True, null=True)
+    nacionalidad = models.CharField(max_length=100)
+    hincha = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.user.username
+
+    class Meta:
+        verbose_name_plural = "Perfiles"

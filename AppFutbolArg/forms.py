@@ -19,12 +19,16 @@ class UserEditForm(UserChangeForm):
     email = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Email"}))
     first_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "First Name"}))
     last_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Last Name"}))
+    nacimiento = forms.DateField(
+        label="Fecha de nacimiento",
+        widget=forms.DateInput(attrs={"placeholder": "Fecha de nacimiento (YYYY-MM-DD)"}),
+    )
     nacionalidad = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Nacionalidad"}))
     hincha = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Hincha de"}))
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name', 'nacionalidad', 'hincha']
+        fields = ['username', 'email', 'first_name', 'last_name', 'nacimiento', 'nacionalidad', 'hincha']
         help_texts = {k: "" for k in fields}
 
 

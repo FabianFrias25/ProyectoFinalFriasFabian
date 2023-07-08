@@ -99,15 +99,21 @@ def getavatar(request):
 
 @login_required
 def editAvatar(request):
+    try:
+        avatar = Avatar.objects.filter(user=request.user).first()
+    except Avatar.DoesNotExist:
+        avatar = Avatar(user=request.user)  # Crea un nuevo objeto Avatar para el usuario
+
     if request.method == 'POST':
-        form = AvatarForm(request.POST, request.FILES)
+        form = AvatarForm(request.POST, request.FILES, instance=avatar)  # Usa el objeto Avatar existente
         if form.is_valid():
             avatar = form.save(commit=False)
-            avatar.user = request.user
-            avatar.save()
+            avatar.user = request.user  # Asigna el usuario al objeto Avatar
+            avatar.save()  # Guarda el objeto Avatar actualizado
             return redirect('perfil')
     else:
-        form = AvatarForm()
+        form = AvatarForm(instance=avatar)  # Usa el objeto Avatar existente
+
     return render(request, "AppFutbolArg/Perfil/avatar.html", {'form': form})
 
 

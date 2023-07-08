@@ -13,7 +13,7 @@
                         <div class="blog-item">
                             <h2 style="font-weight: bold;">{{ blog.titulo }}</h2>
                             <h3>{{ blog.subtitulo }}</h3>
-                            <p>Autor: {{ blog.autor }}</p>
+                            <p>Autor: <a href="{% url 'visitar_perfil' autor_id=blog.autor.id %}" style="color: white">{{ blog.autor }}</a></p>
                             <p>Fecha: {{ blog.fecha }}</p>
                             <img class="blog-image" src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">
                             <p>{{ blog.cuerpo|truncatechars:150 }}</p>

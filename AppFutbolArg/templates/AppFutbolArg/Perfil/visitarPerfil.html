@@ -1,0 +1,20 @@
+{% extends "../inicio.html" %}
+{% load static %}
+
+<title>{% block title %}Perfil{% endblock %}</title>
+
+{% block contenidoQueCambia %}
+<div class="paralogin">
+    <div class="formRegistro">
+        {% if perfil %}
+        <ul>
+            <li><p>Username: {{ perfil.user.username }}</p></li>
+            <li><p>Nacionalidad: {{ perfil.nacionalidad }}</p></li>
+            <li><p>Hincha de: {{ perfil.hincha }}</p></li>
+        </ul>
+        {% else %}
+        <p>Perfil no encontrado.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

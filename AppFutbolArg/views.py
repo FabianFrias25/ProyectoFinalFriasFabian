@@ -1,5 +1,5 @@
-# from django.contrib.auth.models import User
-from django.http import HttpResponseForbidden
+from django.contrib.auth.models import User
+from django.http import HttpResponseForbidden, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login, authenticate, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
@@ -164,6 +164,17 @@ def editAvatar(request):
         form = AvatarForm(instance=avatar)  # Usa el objeto Avatar existente
 
     return render(request, "AppFutbolArg/Perfil/avatar.html", {'form': form})
+
+
+@login_required
+def visitar_perfil(request, autor_id):
+    try:
+        autor = User.objects.get(id=autor_id)
+        perfil = UserProfile.objects.get(user=autor)
+        avatar = getavatar(request)
+        return render(request, 'AppFutbolArg/Perfil/visitarPerfil.html', {'avatar': avatar, 'perfil': perfil})
+    except User.DoesNotExist:
+        return HttpResponse("Error")
 
 
 # BLOGS:

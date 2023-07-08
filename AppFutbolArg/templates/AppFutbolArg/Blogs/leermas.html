@@ -7,7 +7,7 @@
 <div class="contenidoBlogsLeer">
     <div class="container mt-5 margenPosiciones">
         <div class="blogsLeer">
-            <h6 style="font-weight: bold;">Autor: {{ blog.autor }} - {{ blog.fecha|date:"d/m/Y" }}</h6>
+            <h6 style="font-weight: bold;">Autor: <a href="{% url 'visitar_perfil' autor_id=blog.autor.id %}">{{ blog.autor }}</a> - {{ blog.fecha|date:"d/m/Y" }}</h6>
             <h2 style="font-weight: bold;">{{ blog.titulo }}</h2>
             <h3>{{ blog.subtitulo }}</h3>
             <img src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">

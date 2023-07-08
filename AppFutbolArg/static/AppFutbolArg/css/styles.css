@@ -7209,15 +7209,6 @@ h3 {
   padding: 1rem 1.75rem;
   font-size: 1.25rem; }
 
-.btn-social {
-  border-radius: 100%;
-  display: inline-flex;
-  width: 3.25rem;
-  height: 3.25rem;
-  font-size: 1.25rem;
-  justify-content: center;
-  align-items: center; }
-
 .scroll-to-top {
   z-index: 1042;
   right: 1rem;
@@ -7373,12 +7364,6 @@ h3 {
 form .row:first-child .floating-label-form-group {
   border-top: 1px solid #e9ecef; }
 
-.footer {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: #140125;
-  color: #fff; }
-
 .copyright {
   background-color: black; }
 
@@ -7412,8 +7397,6 @@ form .row:first-child .floating-label-form-group {
 .navbar-brand img {
   max-width: 13.5rem; }
 
-.btn-social {
-  margin-bottom: 0.5rem; }
 
 .tablesorter1 {
     font-family: Arial, sans-serif;

@@ -98,6 +98,13 @@ def editarPerfil(request):
         form = UserEditForm(request.POST, instance=usuario)
         if form.is_valid():
             form.save()
+
+            # Actualizar los campos en el perfil
+            perfil.nacionalidad = form.cleaned_data['nacionalidad']
+            perfil.nacimiento = form.cleaned_data['nacimiento']
+            perfil.hincha = form.cleaned_data['hincha']
+            perfil.save()
+
             return redirect('perfil')
     else:
         form = UserEditForm(instance=usuario)

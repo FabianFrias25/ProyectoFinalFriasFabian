@@ -1,0 +1,21 @@
+{% extends "AppFutbolArg/Inicio.html" %}
+{% load static %}
+<title>{% block title %} NO EXISTE {% endblock %}</title>
+{% block contenidoQueCambia %}
+<div class="errorfondo">
+<div class="container mt-5 margenPosiciones">
+  <style>
+    .centered-link {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: 250px;
+        margin-right: -200px;
+    }
+</style>
+
+  <a class="btn btn-secondary centered-link" href="{% url 'Inicio' %}">Regresar</a>
+</div>
+</div>
+{% endblock %}

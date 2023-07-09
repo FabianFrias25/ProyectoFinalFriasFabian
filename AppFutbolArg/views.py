@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.http import HttpResponseForbidden, HttpResponse
+from django.http import HttpResponseForbidden  # HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login, authenticate, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
@@ -185,7 +185,7 @@ def visitar_perfil(request, autor_id):
         avatar = getavatar(request)
         return render(request, 'AppFutbolArg/Perfil/visitarPerfil.html', {'avatar': avatar, 'perfil': perfil})
     except User.DoesNotExist:
-        return render(request, "AppFutbolArg/error404.html",)
+        return render(request, "AppFutbolArg/error404.html")
 
 
 # BLOGS:

@@ -295,3 +295,13 @@ table td {
   background-color: #140125;
   color: #fff;
 }
+
+.errorfondo {
+    background-image: url("../assets/img/error_404.jpg");
+    background-size: cover;
+    position: absolute !important;
+    height: auto !important;
+    width: 100% !important;
+    display: flex;
+    min-height: 100vh;
+}

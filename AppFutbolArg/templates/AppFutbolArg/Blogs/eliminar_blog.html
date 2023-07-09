@@ -4,11 +4,11 @@
 <title>{% block title %}Eliminar Blog{% endblock %}</title>
 
 {% block contenidoQueCambia %}
-<div class="contenido">
+<div class="contenidoBlogs">
     <div class="container mt-5 margenPosiciones d-flex justify-content-center">
-        <div class="formRegistro">
-            <h1 style="display: flex; justify-content: center; color: #1D086C; font-weight: bold;">Eliminar Blog</h1>
-            <p>¿Estás seguro de que deseas eliminar este blog?</p>
+        <div class="formLogin" style="margin-top: 50px">
+            <h1 style="display: flex; justify-content: center; color: #CAB4F7; font-weight: bold;">Eliminar Blog</h1>
+            <p style="color: #DEDAE8">¿Estás seguro de que deseas eliminar este blog?</p>
             <form method="POST" > {% csrf_token %}
                 <button type="submit" class="btn btn-danger">Eliminar</button>
                 <a href="{% url 'detalle_blog' blog_id=blog.id %}" class="btn btn-secondary">Cancelar</a>

@@ -107,7 +107,11 @@ def editarPerfil(request):
 
             return redirect('perfil')
     else:
-        form = UserEditForm(instance=usuario)
+        form = UserEditForm(instance=usuario, initial={
+            'nacionalidad': perfil.nacionalidad if perfil else None,
+            'nacimiento': perfil.nacimiento if perfil else None,
+            'hincha': perfil.hincha if perfil else None,
+        })
 
     return render(request, 'AppFutbolArg/Perfil/editarPerfil.html', {"form": form, "perfil": perfil})
 

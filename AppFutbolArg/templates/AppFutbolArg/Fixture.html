@@ -19,8 +19,8 @@
                 <td>{{ fixture.dia|date:'d/m' }}</td>
                 <td>{{ fixture.hora }}</td>
                 <td>{{ fixture.local.nombre }}</td>
-                <td>{{ fixture.resultadoLocal|default:"-" }}</td>
-                <td>{{ fixture.resultadoVisitante|default:"-" }}</td>
+                <td>{% if fixture.resultadoLocal == 0 %}{{ fixture.resultadoLocal }}{% else %}{{ fixture.resultadoLocal|default:"" }}{% endif %}</td>
+                <td>{% if fixture.resultadoVisitante == 0 %}{{ fixture.resultadoVisitante }}{% else %}{{ fixture.resultadoVisitante|default:"" }}{% endif %}</td>
                 <td>{{ fixture.visitante.nombre }}</td>
             </tr>
             {% endfor %}

@@ -85,11 +85,15 @@ class Avatar(models.Model):
         verbose_name_plural = "Avatar"
 
 
+def autor_image_path(instance, filename):
+    return f'avatares/{instance.user.username}/{filename}'
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     nacimiento = models.DateField(blank=True, null=True)
     nacionalidad = models.CharField(max_length=100)
     hincha = models.CharField(max_length=100)
+    avatar = models.ImageField(upload_to=autor_image_path, null=True, blank=True)
 
     def __str__(self):
         return self.user.username

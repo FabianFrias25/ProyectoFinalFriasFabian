@@ -150,8 +150,10 @@ def getavatar(request):
 def editAvatar(request):
     try:
         avatar = Avatar.objects.filter(user=request.user).first()
+        profile = UserProfile.objects.filter(user=request.user).first()
     except Avatar.DoesNotExist:
         avatar = Avatar(user=request.user)  # Crea un nuevo objeto Avatar para el usuario
+        profile = None
 
     if request.method == 'POST':
         form = AvatarForm(request.POST, request.FILES, instance=avatar)  # Usa el objeto Avatar existente
@@ -159,6 +161,11 @@ def editAvatar(request):
             avatar = form.save(commit=False)
             avatar.user = request.user  # Asigna el usuario al objeto Avatar
             avatar.save()  # Guarda el objeto Avatar actualizado
+
+            if profile:
+                profile.avatar = avatar.image
+                profile.save()  # Guarda el perfil actualizado
+
             return redirect('perfil')
     else:
         form = AvatarForm(instance=avatar)  # Usa el objeto Avatar existente
@@ -174,7 +181,7 @@ def visitar_perfil(request, autor_id):
         avatar = getavatar(request)
         return render(request, 'AppFutbolArg/Perfil/visitarPerfil.html', {'avatar': avatar, 'perfil': perfil})
     except User.DoesNotExist:
-        return HttpResponse("Error")
+        return render(request, "AppFutbolArg/error404.html",)
 
 
 # BLOGS:

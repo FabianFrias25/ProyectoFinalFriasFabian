@@ -7,13 +7,18 @@
 <div class="paralogin">
     <div class="formRegistro">
         {% if perfil %}
-        <ul>
-            <li><p>Username: {{ perfil.user.username }}</p></li>
-            <li><p>Nacionalidad: {{ perfil.nacionalidad }}</p></li>
-            <li><p>Hincha de: {{ perfil.hincha }}</p></li>
-        </ul>
+            {% if perfil.avatar %}
+                <img src="{{ perfil.avatar.url }}" alt="Avatar" style="width: 120px; height: 120px; display: block; margin: 0 auto;">
+            {% else %}
+            <h4 style="display: flex; justify-content: center; align-items: center;" >[SIN AVATAR]</h4>
+            {% endif %}
+            <ul>
+                <li><p>Username: {{ perfil.user.username }}</p></li>
+                <li><p>Nacionalidad: {{ perfil.nacionalidad }}</p></li>
+                <li><p>Hincha de: {{ perfil.hincha }}</p></li>
+            </ul>
         {% else %}
-        <p>Perfil no encontrado.</p>
+            <p>Perfil no encontrado.</p>
         {% endif %}
     </div>
 </div>

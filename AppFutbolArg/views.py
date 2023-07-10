@@ -246,3 +246,7 @@ def eliminar_blog(request, blog_id):
         return redirect('Blogs')
 
     return render(request, 'AppFutbolArg/Blogs/eliminar_blog.html', {'blog': blog})
+
+
+def aboutme(request):
+    return render(request, 'AppFutbolArg/Perfil/aboutme.html')

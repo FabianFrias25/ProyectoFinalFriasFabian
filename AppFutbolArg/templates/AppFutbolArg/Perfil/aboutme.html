@@ -1,0 +1,40 @@
+{% extends "../Inicio.html" %}
+{% load static %}
+{% load humanize %}
+
+<title>{% block title %} Conoceme {% endblock %}</title>
+
+{% block contenidoQueCambia %}
+<div class="containter margenPosiciones" style="margin-top: 150px; display: flex; justify-content: center;">
+    <div class="BlogsLeer">
+            <div class="d-flex mb-3" style="justify-content: center; width: 250px; height: 250px; display: block; margin: 0 auto;">
+                <img src="/static/AppFutbolArg/assets/img/Foto_.jpg" alt="">
+            </div>
+            <div class="personal_text" style="margin-left: 200px">
+                <h6>Hola, me llamo </h6>
+                <h2>Fabian Oscar Frias</h2>
+                <h4>- Junior Python Developer</h4>
+                <h4>- Estudiante de Seguridad Informatica (UCASAL)</h4>
+                <p>Tengo 23 años, estoy prendiendo el desarrollo con Python, esta es oficialmente mi primera página web.<br>
+                   Descubri que realmente me apaciona la programacion, aprendí muchas cosas nuevas, pero aún <br>
+                   me queda mucho camino por recorrer. Tambien me di cuenta que mi fuerte es el backend, mas <br>
+                   que el frontend, pero cada dia voy ganando mas experiencia en ambos. <br>
+                   A la par estudio "Seguridad Informatica", pero a lo que apunto es trabajar de Desarrollador, <br>
+                   primero de sitos web, y luego de Software. Gracias por leerme. <br>
+                   Me encanta el futbol, es por eso que el sitio se trata de esto.
+
+                </p>
+                <ul class="list basic_info">
+                    <li><a><i class="lnr lnr-envelope"></i> fabianoscarfrias@gmail.com</a></li>
+                    <li><a><i class="lnr lnr-home"></i> Formosa, Argentina</a></li>
+                    <li><a><i class="lnr lnr-home"></i> 25 de Febrero, 2000</a></li>
+                </ul>
+                <ul>
+                    <a class="btn btn-outline-dark btn-social mx-1" href="https://github.com/FabianFrias25/"><i class="fab fa-github"></i></a>
+                    <a class="btn btn-outline-dark btn-social mx-1" href="https://www.instagram.com/fabian_frias_rc/"><i class="fab fa-fw fa-instagram"></i></a>
+                    <a class="btn btn-outline-dark btn-social mx-1" href="https://www.linkedin.com/in/fabian-oscar-frias-5533481b5/"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                </ul>
+            </div>
+    </div>
+</div>
+{% endblock %}

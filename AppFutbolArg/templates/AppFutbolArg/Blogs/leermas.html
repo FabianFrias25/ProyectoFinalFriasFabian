@@ -1,7 +1,8 @@
-{% extends "../inicio.html" %}
+{% extends "../Inicio.html" %}
 {% load static %}
+{% load humanize %}
 
-<title>{% block title %}Detalle del Blog{% endblock %}</title>
+<title>{% block title %}Leer Articulo{% endblock %}</title>
 
 {% block contenidoQueCambia %}
 <div class="contenidoBlogsLeer">
@@ -10,8 +11,8 @@
             <h6 style="font-weight: bold;">Autor: <a href="{% url 'visitar_perfil' autor_id=blog.autor.id %}">{{ blog.autor }}</a> - {{ blog.fecha|date:"d/m/Y" }}</h6>
             <h2 style="font-weight: bold;">{{ blog.titulo }}</h2>
             <h3>{{ blog.subtitulo }}</h3>
-            <img src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">
-            <p>{{ blog.cuerpo }}</p>
+            <img class="blogsLeer-image" src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">
+            <h5>{{ blog.cuerpo|linebreaks }}</h5>
         {% if user.is_superuser or blog.autor == user %}
             <div class="botonesEditarEliminar">
                 <a href="{% url 'editar_blog' blog_id=blog.id %}" class="btn-editar">Editar</a>

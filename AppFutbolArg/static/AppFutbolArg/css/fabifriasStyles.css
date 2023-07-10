@@ -174,7 +174,6 @@ table td {
 .contenidoBlogsLeer {
     background-image: url("../assets/img/canchahorizontal.jpg");
     background-size: cover;
-    position: absolute !important;
     height: auto !important;
     width: 100% !important;
     display: flex;
@@ -182,18 +181,21 @@ table td {
 }
 
 .blogsLeer {
-    background-color: #B1D643
-}
-
-.blogsLeer h2, h3, p {
+    background-color: #B1D643;
     padding: 10px;
     border-radius: 10px;
-    justify-content: center;
-    align-items: center;
 }
 
-.blogsLeer h6{
+.blogsLeer h6 {
     padding: 10px 5px 5px 5px;
+}
+
+.blogsLeer-image {
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    max-width: 100% !important;
+    height: auto;
 }
 
 .botonesEditarEliminar {
@@ -215,8 +217,6 @@ table td {
     transition: background-color 0.3s;
     margin-right: 10px;
 }
-
-
 
 .btn-eliminar {
     display: inline-block;

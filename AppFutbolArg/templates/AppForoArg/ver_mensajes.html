@@ -1,0 +1,12 @@
+{% extends "AppFutbolArg/Inicio.html" %}
+{% load static %}
+<title>{% block title %} Foro | Mensajes {% endblock %}</title>
+{% block contenidoQueCambia %}
+    <h2>Mensajes</h2>
+    <ul>
+      {% for mensaje in mensajes %}
+        <li>{{ mensaje.autor.user.username }} - {{ mensaje.enviado }}</li>
+        <p>{{ mensaje.contenido }}</p>
+      {% endfor %}
+    </ul>
+{% endblock %}

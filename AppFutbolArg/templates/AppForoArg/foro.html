@@ -1,0 +1,38 @@
+{% extends "AppFutbolArg/Inicio.html" %}
+{% load static %}
+
+{% block contenidoQueCambia %}
+<div class="contenidoBlogsLeer">
+  <div class="container mt-5 margenPosiciones">
+     <div class="blog-item">
+       <h1 class="subrayado" style="color: #1D086C; font-weight: bold;">Foro</h1>
+
+          <h3 class="subrayado">Mensajes</h3>
+          <div class="blogsLeer">
+              <ul>
+                {% for mensaje in mensajes %}
+                  <li>
+                  <img src="{{ mensaje.autor.userprofile.avatar.url }}" alt="Avatar" style="width: 40px; height: 40px; display: inline-block; vertical-align: middle;">
+                  <span style="display: inline-block; vertical-align: middle;">{{ mensaje.autor.username }} - {{ mensaje.enviado }}</span>
+                      <p>{{ mensaje.contenido }}</p>
+                  </li>
+                  {% if request.user.is_superuser %}
+                    <form action="{% url 'AppForoArg:eliminar_mensaje' mensaje.id %}" method="post">
+                      {% csrf_token %}
+                      <button type="submit">Eliminar</button>
+                    </form>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          <h4 class="subrayado">Enviar mensaje</h4>
+          <form method="post"> {% csrf_token %}
+            <div class="foroEnviar">
+              {{ form.contenido }}
+            </div>
+              <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+     </div>
+  </div>
+</div>
+{% endblock %}

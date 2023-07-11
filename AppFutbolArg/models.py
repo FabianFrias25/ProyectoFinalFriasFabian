@@ -88,6 +88,7 @@ class Avatar(models.Model):
 def autor_image_path(instance, filename):
     return f'avatares/{instance.user.username}/{filename}'
 
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     nacimiento = models.DateField(blank=True, null=True)

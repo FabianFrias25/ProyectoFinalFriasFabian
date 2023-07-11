@@ -305,3 +305,14 @@ table td {
     display: flex;
     min-height: 100vh;
 }
+
+.blogsCrear {
+    font-weight: bold !important;
+    background: rgb(89,173,49);
+    background: linear-gradient(90deg, rgba(89,173,49,0.8072478991596639) 8%, rgba(113,166,95,0.8324579831932774) 100%);
+    padding: 40px 20px 20px 20px !important;
+    border-radius: 5px !important;
+    width: 500px !important;
+    height: auto !important;
+    justify-content: center !important;
+}

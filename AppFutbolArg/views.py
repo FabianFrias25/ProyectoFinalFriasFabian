@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.contrib import messages
 from django.http import HttpResponseForbidden  # HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login, authenticate, update_session_auth_hash
@@ -54,7 +55,13 @@ def registro(request):
                 return redirect('../login')
         else:
             form = RegistrationForm()
+
+        if form.errors:
+            for field, error in form.errors.items():
+                messages.error(request, f"{field.capitalize()}: {error.as_text()}")
+
         return render(request, 'AppFutbolArg/registro.html', {'form': form})
+
 
 
 def ver_login(request):
@@ -72,6 +79,8 @@ def ver_login(request):
                 return render(request, 'AppFutbolArg/login.html', {'error': 'Nombre de usuario o contraseña '
                                                                             'incorrectos.'})
         return render(request, 'AppFutbolArg/login.html')
+
+
 
 
 @login_required

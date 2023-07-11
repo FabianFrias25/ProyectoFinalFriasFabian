@@ -32,6 +32,14 @@
                 <p style="color: darkblack; display: flex; justify-content: center; align-items: center;">¿Ya tienes una cuenta?<a href="/AppFutbolArg/login" class="btn btn-success">Iniciar sesión</a></p>
             </div>
         </form>
+
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="blogsLeer">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 </body>
 {% endblock %}

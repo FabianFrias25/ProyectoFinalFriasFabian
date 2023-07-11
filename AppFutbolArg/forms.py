@@ -12,6 +12,7 @@ class RegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2', 'nacionalidad', 'nacimiento', 'hincha']
+        help_texts = {k: "" for k in fields}
 
 
 class UserEditForm(UserChangeForm):
@@ -28,7 +29,7 @@ class UserEditForm(UserChangeForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name', 'nacimiento', 'nacionalidad', 'hincha',]
+        fields = ['username', 'email', 'first_name', 'last_name', 'nacimiento', 'nacionalidad', 'hincha', ]
         help_texts = {k: "" for k in fields}
 
 

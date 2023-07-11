@@ -24,5 +24,5 @@ urlpatterns = [
     path('', Inicio, name="Inicio"),
     path('admin/', admin.site.urls),
     path('AppFutbolArg/', include('AppFutbolArg.urls')),
-    path('AppForoArg/', include('AppForoArg.urls')),
+    path('AppFutbolArg/foro/', include('AppForoArg.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

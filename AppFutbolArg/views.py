@@ -63,7 +63,6 @@ def registro(request):
         return render(request, 'AppFutbolArg/registro.html', {'form': form})
 
 
-
 def ver_login(request):
     if request.user.is_authenticated:
         return redirect('Inicio')
@@ -79,8 +78,6 @@ def ver_login(request):
                 return render(request, 'AppFutbolArg/login.html', {'error': 'Nombre de usuario o contraseña '
                                                                             'incorrectos.'})
         return render(request, 'AppFutbolArg/login.html')
-
-
 
 
 @login_required
@@ -259,3 +256,7 @@ def eliminar_blog(request, blog_id):
 
 def aboutme(request):
     return render(request, 'AppFutbolArg/Perfil/aboutme.html')
+
+
+def readmeinfo(request):
+    return render(request, 'AppFutbolArg/readme.html')

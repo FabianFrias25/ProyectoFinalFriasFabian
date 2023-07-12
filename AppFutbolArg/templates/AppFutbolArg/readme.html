@@ -1,0 +1,47 @@
+{% extends "AppFutbolArg/Inicio.html" %}
+{% load static %}
+{% load humanize %}
+
+<title>{% block title %} Conoce la pagina {% endblock %}</title>
+
+{% block contenidoQueCambia %}
+<div class="containter margenPosiciones" style="margin-top: 120px; width: 75%;">
+    <div class="BlogsLeer">
+        <div class="info_text" style="margin-left: 300px; text-align: justify;">
+            <h6>Hola, esto es: </h6>
+            <h2 style="font-weight: bold;">LIGA ARGENTINA DE FUTBOL 2023:</h2>
+            <h6>información básica del sitio:</h6>
+            <h4>- Características:</h4>
+            <p>Página de inicio: Al ingresar, se muestra una página de bienvenida con opciones de navegación.<br>
+                Barra de navegación: Ubicada en la parte superior de la página, contiene opciones como POSICIONES, FIXTURE, EQUIPOS, BLOGS y FORO, las cuales redirigen a secciones específicas. <br>
+                Inicio de sesión y registro: Tanto en la página de bienvenida como en la barra de navegación, se encuentran opciones para iniciar sesión y registrarse.
+                Una vez iniciada la sesión, el nombre de usuario aparece en lugar de estas opciones. <br>
+                Pie de página: En la página de inicio, se encuentra información sobre el proyecto y personal en la sección "About Me".</p>
+                <br>
+            <h4>- Contenido: </h4>
+            <p>*Sin registrarse podran visualizar: <br>
+                POSICIONES: Muestra la tabla de clasificación actual de los equipos participantes en la Liga, con sus respectivos puntos, partidos jugados, ganados, empatados y perdidos, y diferencia de goles obtenidos.<br>
+                FIXTURE: Contiene los partidos programados para la fecha actual (o la más próxima), con los enfrentamientos, día y hora, y con el resultado si el encuentro esta finalizado.<br>
+                EQUIPOS: Lista de los clubes participantes en el torneo, con una barra de búsqueda para encontrar información específica sobre un club.<br>
+                <br>
+                *Logueados podran acceder a:<br>
+                BLOGS: Artículos publicados con historias y sucesos del fútbol argentino en distintas épocas. Los usuarios también pueden publicar sus propios blogs.<br>
+                FORO: Un chat público para interactuar y conversar con otros usuarios registrados. <br>
+                **Avatar - Username**: Los usuarios pueden ver, editar o actualizar su información personal, cambiar su contraseña y agregar un avatar/foto de perfil.<br>
+                LOGOUT: cerrar la sesion del usuario.
+                Dato: tanto en Blogs y Foro se puede hacer click sobre el username del usuario que interactuó y visitar su perfil.</p>
+            <ul style="margin-left:320px;">
+                <li><a><i class="lnr lnr-envelope"></i> LIGA PROFESIONAL DE FUTBOL</a></li>
+                <li><a><i class="lnr lnr-home"></i>Argentina</a></li>
+                <li><a><i class="lnr lnr-home"></i><small class="pre-wrap">© AFA 2023 </small></a></li>
+            </ul>
+            <ul style="margin-left:280px;">
+                <a class="btn btn-outline-dark btn-social mx-1" href="https://github.com/FabianFrias25/"><i class="fab fa-github"></i></a>
+                <a class="btn btn-outline-dark btn-social mx-1" href="https://www.instagram.com/fabian_frias_rc/"><i class="fab fa-fw fa-instagram"></i></a>
+                <a class="btn btn-outline-dark btn-social mx-1" href="https://www.linkedin.com/in/fabian-oscar-frias-5533481b5/"><i class="fab fa-fw fa-linkedin-in"></i></a><br>
+                <a href="{% url 'AboutMe' %}" style="color: black; margin-left: 60px; font-weight: bold;">Conoceme</a>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

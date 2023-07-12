@@ -21,5 +21,6 @@ urlpatterns = [
     path('perfil/cambiarAvatar/', editAvatar, name="editAvatar"),
     path('perfil/changePassword/', changePassword, name="changePassword"),
     path('logout/', LogoutView.as_view(template_name='AppFutbolArg/login.html'), name="logout"),
-    path('aboutme/', aboutme, name="AboutMe")
+    path('aboutme/', aboutme, name="AboutMe"),
+    path('infoextra/', readmeinfo, name="readmeinfo"),
 ]

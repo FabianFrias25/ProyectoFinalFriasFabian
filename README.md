@@ -37,4 +37,17 @@ Dato extra: tanto en Blogs y Foro se puede hacer click sobre el username del usu
 - python manage.py runserver
 
 
-## Aclaracion extra:
+## Tecnologias usadas:
+- Front-End
+HTML 5
+CSS
+Javascript
+Bootstrap
+
+- Back-End
+Python 3.11
+Django 4.2.2
+
+## Pruebas y Video de Demsotracion:
+En el siguiente link de Drive se encuentra una carpeta con un docs con las capturas de pruebas y el video de demostración del proyecto:
+https://drive.google.com/drive/folders/1MkThWLTarvkIOVZFeM_rIg3ScQHhT_mD?usp=sharing

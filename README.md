@@ -1,27 +1,40 @@
 # Proyecto Final
-# App Futbol Arg: Liga de Fútbol Argentino (Edición 2023) v2.0
+# App Futbol Arg: Liga de Fútbol Argentino v2.0
 
-Este proyecto es una pagina web que proporciona informacion actualizada sobre Liga Argentina de Futbol.  Se encuentran las tres informaciones básicas e importantes sobre la misma: la Tabla de Posiciones, el Fixture o agenda de la fecha actual por jugarse (o en proceso), y los equipos que participan en la actual Liga de Primera División del Fútbol Argentino.
+Este proyecto es una pagina web que proporciona informacion actualizada sobre Liga Argentina de Futbol (Edición 2023) 
 
 ## Características
-Es un sitio web bastante intuitivo en la cual al ingresar en primera medida se encontrarar con una paguna de incio o de bienvenida.
-En la barra de navegacion encontrara a la derecha el nombre de la liga (al hacer click se redirigira a la misma pagina de bienvenida) y a la izquierda con las opciones principales: TABLA DE POSICIONES, FIXTURE y EQUIPOS, al seleccionar alguna de las tres se redirigirá a la seccion con la informacion correspondiente a la misma.
+Página de inicio: Al ingresar, se muestra una página de bienvenida con opciones de navegación.
+Barra de navegación: Ubicada en la parte superior de la página, contiene opciones como POSICIONES, FIXTURE, EQUIPOS, BLOGS y FORO, las cuales redirigen a secciones específicas.
+Inicio de sesión y registro: Tanto en la página de bienvenida como en la barra de navegación, se encuentran opciones para iniciar sesión y registrarse. Una vez iniciada la sesión, el nombre de usuario aparece en lugar de estas opciones.
+Pie de página: En la página de inicio, se encuentra información sobre el proyecto y personal en la sección "About Me".
 
-La Tabla de Posiciones muestra la clasificación actual de los equipos participantes en la Liga, con los puntos y partidos jugados.
-En Fixture muestra los partidos programados para la fecha en curso del torneo, con sus respectivos encuentros, dia y hora.
-Equipos se encuentra la lista de los clubes participantes del dicho torneo y una barra de busqueda para ingresar el nombre de un club deseado y encontrar informacion sobre el mismo.
+
+## Contenidos:
+- Sin registrarse podran visualizar:
+POSICIONES: Muestra la tabla de clasificación actual de los equipos participantes en la Liga, con sus respectivos puntos, partidos jugados, ganados, empatados y perdidos, y diferencia de goles obtenidos.
+FIXTURE: Contiene los partidos programados para la fecha actual (o la más próxima), con los enfrentamientos, día y hora, y con el resultado si el encuentro esta finalizado.
+EQUIPOS: Lista de los clubes participantes en el torneo, con una barra de búsqueda para encontrar información específica sobre un club.
+
+
+- Logueados podran acceder a:
+BLOGS: Artículos publicados con historias y sucesos del fútbol argentino en distintas épocas. Los usuarios también pueden publicar sus propios blogs.
+FORO: Un chat público para interactuar y conversar con otros usuarios registrados.
+*Avatar - Username*: Los usuarios pueden ver, editar o actualizar su información personal, cambiar su contraseña y agregar un avatar/foto de perfil.
+LOGOUT: cerrar la sesion del usuario.
+
+Dato extra: tanto en Blogs y Foro se puede hacer click sobre el username del usuario que interactuó y visitar su perfil.
 
 
 ## Instalación
 
-- Crear una carpeta para un mejor orden.
+- Recomendacion: Crear una carpeta nueva para hacer la clonacion.
 
 - git clone https://github.com/FabianFrias25/ProyectoFinalFriasFabian.git
 
-- cd Proyecto3
+- cd ProyectoFinal1
 
 - python manage.py runserver
 
 
 ## Aclaracion extra:
-Es mi primera pagina web, se aceptan recomendaciones y correcciones, y queda pendiente a una actualizacion para colocar mas informacion y una opcion de registro para que sea mas interactivo.

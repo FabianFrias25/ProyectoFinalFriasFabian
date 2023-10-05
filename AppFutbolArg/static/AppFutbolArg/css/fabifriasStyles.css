@@ -316,3 +316,27 @@ table td {
     height: auto !important;
     justify-content: center !important;
 }
+
+
+.campeon2023 {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #713cff8c;
+}
+
+.campeon2023 h1 {
+    font-weight: 600;
+    color: white;
+}
+
+.campeon2023 img {
+    max-width: 50px;
+    height: auto;
+}
+
+.campeon2023 a {
+    color: white;
+    font-size: 1.5rem;
+}
